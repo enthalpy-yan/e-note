@@ -39,7 +39,7 @@ http://news.sina.com.cn/w/gc/2013-08-06/1540199.shtml
         partial1.jade
         partial2.jade
         
-### Running the app
+### Running the app (Project is still under constructing.)
 
 Runs like a typical express app:
 
