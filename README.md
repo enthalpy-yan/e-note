@@ -10,21 +10,7 @@ http://news.sina.com.cn/w/gc/2013-08-20/1204214.shtml
 
 http://news.sina.com.cn/w/gc/2013-08-06/1540199.shtml
 
-### Running the app
-
-Runs like a typical express app:
-
-```shell
-node app.js
-```
-
-### Updating `angular.js`
-
-Alternatively, you can update AngularJS with [Bower](http://bower.io):
-
-```shell
-bower update angular
-```
+##Infos
 
 ### Directory Layout
     
@@ -52,3 +38,11 @@ bower update angular
       partials/             --> angular view partials (partial jade templates)
         partial1.jade
         partial2.jade
+        
+### Running the app
+
+Runs like a typical express app:
+
+```shell
+node app.js
+```
