@@ -46,3 +46,10 @@ Runs like a typical express app:
 ```shell
 node app.js
 ```
+
+### Updating `angular.js`
+
+Alternatively, you can update AngularJS with [Bower](http://bower.io):
+
+```shell
+bower update angular
