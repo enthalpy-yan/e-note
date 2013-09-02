@@ -11,6 +11,13 @@ var mongoose = require('mongoose')
 exports.findAllNotes = function(req, res, cb) {
 	Note.find({}, function(err, notes) {
 		cb(req, res, notes);
-	});
+	}); 
+}
+/*
+ * By Lei Zhang, do not need req, res.
+ * also could be handle err.
+ */
+exports.findAll = function(cb){
+	Note.find({},null,null,cb);
 }
 
