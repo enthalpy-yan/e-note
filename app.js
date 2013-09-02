@@ -4,12 +4,12 @@
  */
 
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
-  http = require('http'),
-  path = require('path'),
-  fs = require('fs'),
-  mongoose = require('mongoose');
+    routes = require('./routes'),
+    api = require('./routes/api'),
+    http = require('http'),
+    path = require('path'),
+    fs = require('fs'),
+    mongoose = require('mongoose');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
@@ -19,21 +19,21 @@ mongoose.connect('mongodb://localhost/test123123');
 // Bootstrap models
 var models_path = __dirname + '/notes_db'
 fs.readdirSync(models_path).forEach(function (file) {
-  require(models_path+'/'+file)
+    require(models_path+'/'+file)
 })
 
 var Note = mongoose.model('Note');
 
 var insertNewNote = function () {
-	Note.remove(function (err) {});
+    Note.remove(function (err) {});
 
-	var note = new Note(
-	{
-		sentence: 'afasfasdf',
-		translation: 'alsdfjljasfasdf'
-	});
+    var note = new Note(
+    {
+        sentence: 'afasfasdf',
+        translation: 'alsdfjljasfasdf'
+    });
 
-	note.save();
+    note.save();
 }();
 
 /**
@@ -52,12 +52,12 @@ app.use(app.router);
 
 // development only
 if (app.get('env') === 'development') {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 // production only
 if (app.get('env') === 'production') {
-  // TODO
+    //TODO
 };
 
 
@@ -86,5 +86,5 @@ io.sockets.on('connection', require('./routes/socket'));
  */
 
 server.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });
