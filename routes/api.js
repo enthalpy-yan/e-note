@@ -10,6 +10,9 @@ exports.name = function (req, res) {
 };
 
 exports.findNotesById = function(req, res) {
+	dbHandler.findNotesById(req.params.id,function(err,data){
+		res.json(data);
+	})
 };
 
 exports.findAllNotes = function(req, res) {

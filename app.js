@@ -33,7 +33,13 @@ var insertNewNote = function () {
         translation: 'alsdfjljasfasdf'
     });
 
+    var note2 = new Note({
+        sentence: 'test findbyid',
+        translation: 'asdfasfasdfdsa'
+    });
+
     note.save();
+    note2.save();
 }();
 
 /**
@@ -73,6 +79,7 @@ app.get('/partials/:name', routes.partials);
 app.get('/api/name', api.name);
 // app.get('/api/notes', api.findAllNotes);
 app.get('/api/notes', api.findAllNotes);
+app.get('/api/notes/:id',api.findNotesById);
 
 
 // redirect all others to the index (HTML5 history)
