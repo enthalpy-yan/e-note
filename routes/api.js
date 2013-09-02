@@ -22,7 +22,7 @@ exports.findAllNotes = function(req, res) {
 }
 
 exports.addNote = function(req, res) {
-
+	dbHandler.addNote(req.body)
 };
  
 exports.updateNote = function(req, res) {
