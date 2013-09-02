@@ -3,7 +3,7 @@
  */
 var dbHandler = require('../notes_db/notesController.js');
 
-//
+//This callback function is used to return JSON data to client.
 var returnDataCallback = function(req, res, data) {
 	res.json(data);
 }
