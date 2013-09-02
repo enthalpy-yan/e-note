@@ -15,11 +15,10 @@ exports.name = function (req, res) {
 };
 
 exports.findNotesById = function(req, res) {
-	dbHandler.findAllNotes(req, res, returnDataCallback);
 };
 
 exports.findAllNotes = function(req, res) {
-
+	dbHandler.findAllNotes(req, res, returnDataCallback);
 };
 
 exports.addNote = function(req, res) {
