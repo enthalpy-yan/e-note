@@ -7,3 +7,23 @@ exports.name = function (req, res) {
   	name: 'Bob'
   });
 };
+
+export.findNotesById = function(req, res) {
+
+};
+
+exports.findAllNotes = function(req, res) {
+
+};
+
+exports.addNote = function(req, res) {
+
+};
+ 
+exports.updateNote = function(req, res) {
+
+};
+ 
+exports.deleteNote = function(req, res) {
+
+};
