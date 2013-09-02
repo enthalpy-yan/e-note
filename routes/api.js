@@ -1,6 +1,12 @@
 /*
  * Serve JSON to our AngularJS client
  */
+var dbHandler = require('../notes_db/notesController.js');
+
+//
+var returnDataCallback = function(req, res, data) {
+	res.json(data);
+}
 
 exports.name = function (req, res) {
   res.json({
@@ -8,8 +14,8 @@ exports.name = function (req, res) {
   });
 };
 
-export.findNotesById = function(req, res) {
-
+exports.findNotesById = function(req, res) {
+	dbHandler.findAllNotes(req, res, returnDataCallback);
 };
 
 exports.findAllNotes = function(req, res) {
