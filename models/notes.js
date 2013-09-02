@@ -24,10 +24,10 @@ var setTags = function (tags) {
 var categories = ''.split('');
 
 var NoteSchema = new Schema({
-	sentence: { type :String, default: '', trim: true },
+	sentence: { type: String, default: '', trim: true },
  	translation: { type: String, default: '', trim: true},
  	// creator: {type:Schema.ObjectId, ref:'User'},
- 	category: {type:String, enum: categories},
+ 	category: {type: String, enum: categories},
  	tags: { type: [], get: getTags, set: setTags},
  	like: { type: Number},
  	createdAt: {type: Date, default: Date.now}
