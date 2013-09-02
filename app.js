@@ -79,7 +79,9 @@ app.get('/partials/:name', routes.partials);
 app.get('/api/name', api.name);
 // app.get('/api/notes', api.findAllNotes);
 app.get('/api/notes', api.findAllNotes);
-app.get('/api/notes/:id',api.findNotesById);
+app.get('/api/notes/:id', api.findNotesById);
+app.post('/api/notes', api.addNote);
+app.put('/api/notes/:id', api.updateNote);
 
 
 // redirect all others to the index (HTML5 history)

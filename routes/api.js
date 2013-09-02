@@ -22,11 +22,21 @@ exports.findAllNotes = function(req, res) {
 }
 
 exports.addNote = function(req, res) {
-	dbHandler.addNote(req.body)
+	// test for req.body
+	var body = {
+		sentence: 'test addnote',
+		translation: 'asdfadsfsaf',
+	}
+	res.json(dbHandler.addNote(body));
 };
  
 exports.updateNote = function(req, res) {
-
+	// test for req.body
+	var body = {
+		sentence: 'test for update',
+		translation: 'asdfsadfasf'
+	}
+	res.json(dbHandler.updateNote(req.params.id, body));
 };
  
 exports.deleteNote = function(req, res) {
