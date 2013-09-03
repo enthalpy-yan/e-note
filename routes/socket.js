@@ -1,15 +1,12 @@
-/*
- * Serve content over a socket
- */
+module.exports = function(app, server) {
+	var socketIO = require('socket.io').listen(server);
+	global.socketIO = socketIO;
 
-module.exports = function (socket) {
-    socket.emit('send:name', {
-        name: 'Bob'
-    });
+	socketIO.set("transports", ["xhr-polling"]);
+	socketIO.sockets.on('connection', function (socket) {
 
-    setInterval(function () {
-        socket.emit('send:time', {
-            time: (new Date()).toString()
-        });
-    }, 1000);
-};
+	  socket.on('disconnect', function () {
+	  });
+
+	});
+}

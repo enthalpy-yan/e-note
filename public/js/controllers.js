@@ -4,13 +4,13 @@
 
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, socket) {
-    socket.on('send:name', function (data) {
-      $scope.name = data.name;
-    });
+
   }).
-  controller('MyCtrl1', function ($scope, socket) {
-    socket.on('send:time', function (data) {
-      $scope.time = data.time;
+  controller('MyCtrl1', function ($scope, $http, socket) {
+    socket.on('note: added', function (data) {
+      $http.get('/api/notes').success(function(data) {
+        console.log(data);
+      });
     });
   }).
   controller('MyCtrl2', function ($scope) {

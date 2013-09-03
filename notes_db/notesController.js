@@ -6,26 +6,13 @@ exports.findAllNotes = function(cb){
 	Note.find({}, null, null, cb);
 }
 
-exports.findNotesById = function(id,cb){
+exports.findNotesById = function(id, cb){
 	Note.findById(id, null, null, cb);
 }
 
-exports.addNote = function(body){
-	console.log('body: '+ body);
-	var note;
-	note = new Note({
-		sentence: body.sentence,
-		translation: body.translation,
-		// TODO list
-
-	});
-	note.save(function(err){
-		if(!err)
-			console.log("created");
-		else
-			console.log(err);
-	})
-	return note;
+exports.addNote = function(body, cb){
+	var note = new Note(body);
+	note.save(cb);
 }
 
 exports.updateNote = function(id, body){

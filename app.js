@@ -13,7 +13,7 @@ var express = require('express'),
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+require('./routes/socket')(app, server);
 mongoose.connect('mongodb://localhost/test123123');
 
 // Bootstrap models
@@ -86,9 +86,6 @@ app.put('/api/notes/:id', api.updateNote);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
-
-// Socket.io Communication
-io.sockets.on('connection', require('./routes/socket'));
 
 /**
  * Start Server

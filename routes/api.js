@@ -12,7 +12,7 @@ exports.name = function (req, res) {
 exports.findNotesById = function(req, res) {
 	dbHandler.findNotesById(req.params.id,function(err,data){
 		res.json(data);
-	})
+	});
 };
 
 exports.findAllNotes = function(req, res) {
@@ -22,12 +22,15 @@ exports.findAllNotes = function(req, res) {
 }
 
 exports.addNote = function(req, res) {
-	// test for req.body
-	var body = {
-		sentence: 'test addnote',
-		translation: 'asdfadsfsaf',
-	}
-	res.json(dbHandler.addNote(body));
+	dbHandler.addNote(req.body, function(err) {
+		if(!err) {
+			var socketIO = global.socketIO; 
+			socketIO.sockets.emit('note: added', {name:"yh"});
+			res.json(true);
+		} else {
+			res.json(false);
+		}
+	});
 };
  
 exports.updateNote = function(req, res) {
