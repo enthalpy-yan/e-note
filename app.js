@@ -16,31 +16,17 @@ var server = require('http').createServer(app);
 require('./routes/socket')(app, server);
 mongoose.connect('mongodb://localhost/test123123');
 
-// Bootstrap models
-var models_path = __dirname + '/notes_db'
-fs.readdirSync(models_path).forEach(function (file) {
-    require(models_path+'/'+file)
-})
+// Remove all notes
+// var models_path = __dirname + '/notes_db'
+// fs.readdirSync(models_path).forEach(function (file) {
+//     require(models_path+'/'+file)
+// })
 
-var Note = mongoose.model('Note');
+// var Note = mongoose.model('Note');
 
-var insertNewNote = function () {
-    Note.remove(function (err) {});
-
-    var note = new Note(
-    {
-        sentence: 'afasfasdf',
-        translation: 'alsdfjljasfasdf'
-    });
-
-    var note2 = new Note({
-        sentence: 'test findbyid',
-        translation: 'asdfasfasdfdsa'
-    });
-
-    note.save();
-    note2.save();
-}();
+// var removeNotes = function () {
+//     Note.remove(function (err) {});
+// }();
 
 /**
  * Configuration
