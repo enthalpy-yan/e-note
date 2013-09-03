@@ -10,6 +10,10 @@ exports.findAllNotes = function(req, cb){
 	query.exec(cb);
 }
 
+exports.countNotes = function(cb) {
+	Note.count(cb);
+}
+
 exports.findNotesById = function(id, cb){
 	Note.findById(id, null, null, cb);
 }

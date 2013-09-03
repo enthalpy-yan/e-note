@@ -3,12 +3,6 @@
  */
 var dbHandler = require('../notes_db/notesController.js');
 
-exports.name = function (req, res) {
-	res.json({
-		name: 'Bob'
-	});
-};
-
 exports.findNotesById = function(req, res) {
 	dbHandler.findNotesById(req.params.id, function(err, data){
 		res.json(data);
@@ -17,6 +11,12 @@ exports.findNotesById = function(req, res) {
 
 exports.findAllNotes = function(req, res) {
 	dbHandler.findAllNotes(req, function(err, data){
+		res.json(data);
+	});
+}
+
+exports.countNotes = function(req, res) {
+	dbHandler.countNotes(function(err, data){
 		res.json(data);
 	});
 }

@@ -1,8 +1,8 @@
 extends layout
 
 block body
-  div(ng-controller='MyCtrl1')
-    div(infinite-scroll='loadMore(limit)')
+  div(ng-controller='MyCtrl1', ng-init="getNotesLength()")
+    div(infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine')
       div(ng-repeat='note in notes')
         div(ng-cloak, style='width: 800px; height: 200px; margin: auto 0; background-color: grey; margin-top: 10px;')
           p {{note.sentence}}

@@ -16,16 +16,17 @@ var server = require('http').createServer(app);
 require('./routes/socket')(app, server);
 mongoose.connect('mongodb://localhost/test123123');
 
-var models_path = __dirname + '/notes_db'
-fs.readdirSync(models_path).forEach(function (file) {
-    require(models_path+'/'+file)
-})
+// Test case for inserting/removing data to/from mongodb. 
+// var models_path = __dirname + '/notes_db'
+// fs.readdirSync(models_path).forEach(function (file) {
+//     require(models_path+'/'+file)
+// })
 
-var Note = mongoose.model('Note');
+// var Note = mongoose.model('Note');
 
-var addDummyNotes = function () {
-    Note.remove(function (err) {});
-}();
+// var addDummyNotes = function () {
+//     Note.remove(function (err) {});
+// }();
 
 /**
  * Configuration
@@ -61,7 +62,7 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
-app.get('/api/name', api.name);
+app.get('/api/notes/count', api.countNotes);
 app.get('/api/notes', api.findAllNotes);
 app.get('/api/notes/:id', api.findNotesById);
 app.post('/api/notes', api.addNote);
