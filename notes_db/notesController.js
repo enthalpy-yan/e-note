@@ -15,19 +15,8 @@ exports.addNote = function(body, cb){
 	note.save(cb);
 }
 
-exports.updateNote = function(id, body){
-	Note.findById(id, null, null, function(err, note){
-		note.sentence = body.sentence;
-		note.translation = body.translation;
-		// TODO list
-
-		note.save(function(err){
-			if(!err)
-				console.log("updated");
-			else
-				console.log(err);
-		})
-		return note;
-	})
+exports.updateNote = function(req, cb){
+	var note = new Note(req.body);
+	Note.update({_id: req.params.id}, req.body, cb);
 }
 

@@ -10,7 +10,7 @@ exports.name = function (req, res) {
 };
 
 exports.findNotesById = function(req, res) {
-	dbHandler.findNotesById(req.params.id,function(err,data){
+	dbHandler.findNotesById(req.params.id, function(err, data){
 		res.json(data);
 	});
 };
@@ -25,7 +25,7 @@ exports.addNote = function(req, res) {
 	dbHandler.addNote(req.body, function(err) {
 		if(!err) {
 			var socketIO = global.socketIO; 
-			socketIO.sockets.emit('note: added', {name:"yh"});
+			socketIO.sockets.emit('note: added', {});
 			res.json(true);
 		} else {
 			res.json(false);
@@ -34,12 +34,16 @@ exports.addNote = function(req, res) {
 };
  
 exports.updateNote = function(req, res) {
-	// test for req.body
-	var body = {
-		sentence: 'test for update',
-		translation: 'asdfsadfasf'
-	}
-	res.json(dbHandler.updateNote(req.params.id, body));
+	dbHandler.updateNote(req, function(err, numberAffected, raw) {
+		if(!err) {
+			var socketIO = global.socketIO; 
+			socketIO.sockets.emit('note: updated', {});
+			res.json(true);
+		} else {
+			res.json(false);
+		}
+
+	});
 };
  
 exports.deleteNote = function(req, res) {

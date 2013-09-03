@@ -12,6 +12,12 @@ angular.module('myApp.controllers', []).
         console.log(data);
       });
     });
+
+    socket.on('note: updated', function (data) {
+      $http.get('/api/notes').success(function(data) {
+        console.log(data);
+      });
+    });
   }).
   controller('MyCtrl2', function ($scope) {
     // write Ctrl here
