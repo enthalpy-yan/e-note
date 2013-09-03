@@ -1,2 +1,3 @@
-p This is the partial for view 1.
-p The current time is {{time}}
+<div infinite-scroll="addMoreItems()">
+  <div ng-repeat="item in items">Item number {{$index}}: {{$item}}</div>
+</div>

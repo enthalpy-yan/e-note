@@ -7,9 +7,12 @@ angular.module('myApp.controllers', []).
 
   }).
   controller('MyCtrl1', function ($scope, $http, socket) {
+    $scope.limit = 4;
+    $scope.notes = [];
+
     socket.on('note: added', function (data) {
       $http.get('/api/notes').success(function(data) {
-        console.log(data);
+        $scope.notes = data;
       });
     });
 
@@ -18,6 +21,13 @@ angular.module('myApp.controllers', []).
         console.log(data);
       });
     });
+
+    $scope.loadMore = function(limit) {
+      $http.get('/api/notes?limit=' + limit).success(function(data) {
+        $scope.notes = data;
+        $scope.limit += 4;
+      });
+    };
   }).
   controller('MyCtrl2', function ($scope) {
     // write Ctrl here

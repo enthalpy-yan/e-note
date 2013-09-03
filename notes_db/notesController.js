@@ -2,8 +2,12 @@ require('./notesModel.js');
 var mongoose = require('mongoose'),
 	Note = mongoose.model('Note');
 
-exports.findAllNotes = function(cb){
-	Note.find({}, null, null, cb);
+exports.findAllNotes = function(req, cb){
+	var query = Note.find({});
+	if (req.query.limit)
+		query.limit(req.query.limit);
+	query.sort({'createdAt': -1});
+	query.exec(cb);
 }
 
 exports.findNotesById = function(id, cb){

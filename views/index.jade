@@ -1,22 +1,16 @@
 extends layout
 
 block body
-  div(ng-controller='AppCtrl')
-    h2 Hello {{name}}
-    ul.menu
-      li
-        a(href='view1') view1
-      li
-        a(href='view2') view2
-
-    div(ng-view)
-
-    div
-      | Angular Socket.io seed app: v
-      span(app-version)
+  div(ng-controller='MyCtrl1')
+    div(infinite-scroll='loadMore(limit)')
+      div(ng-repeat='note in notes')
+        div(ng-cloak, style='width: 800px; height: 200px; margin: auto 0; background-color: grey; margin-top: 10px;')
+          p {{note.sentence}}
 
   script(src='/socket.io/socket.io.js')
+  script(src='bower_components/angular/jquery.js')
   script(src='bower_components/angular/angular.js')
+  script(src='bower_components/angular/ng-infinite-scroll.js')
   script(src='bower_components/angular-socket-io/socket.js')
   script(src='js/app.js')
   script(src='js/services.js')

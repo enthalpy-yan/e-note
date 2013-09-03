@@ -30,7 +30,7 @@ var NoteSchema = new Schema({
  	// category: {type: String, enum: categories},
  	// tags: { type: [], get: getTags, set: setTags},
  	// like: { type: Number},
- 	// createdAt: {type: Date, default: Date.now}
+ 	createdAt: {type: Date, default: Date.now}
 });
 
 /**

@@ -16,17 +16,16 @@ var server = require('http').createServer(app);
 require('./routes/socket')(app, server);
 mongoose.connect('mongodb://localhost/test123123');
 
-// Remove all notes
-// var models_path = __dirname + '/notes_db'
-// fs.readdirSync(models_path).forEach(function (file) {
-//     require(models_path+'/'+file)
-// })
+var models_path = __dirname + '/notes_db'
+fs.readdirSync(models_path).forEach(function (file) {
+    require(models_path+'/'+file)
+})
 
-// var Note = mongoose.model('Note');
+var Note = mongoose.model('Note');
 
-// var removeNotes = function () {
-//     Note.remove(function (err) {});
-// }();
+var addDummyNotes = function () {
+    Note.remove(function (err) {});
+}();
 
 /**
  * Configuration

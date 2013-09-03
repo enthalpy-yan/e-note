@@ -16,7 +16,7 @@ exports.findNotesById = function(req, res) {
 };
 
 exports.findAllNotes = function(req, res) {
-	dbHandler.findAllNotes(function(err, data){
+	dbHandler.findAllNotes(req, function(err, data){
 		res.json(data);
 	});
 }
