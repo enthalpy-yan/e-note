@@ -32,7 +32,7 @@ exports.addNote = function(req, res) {
 		}
 	});
 };
- 
+
 exports.updateNote = function(req, res) {
 	dbHandler.updateNote(req, function(err, numberAffected, raw) {
 		if(!err) {
@@ -47,5 +47,13 @@ exports.updateNote = function(req, res) {
 };
  
 exports.deleteNote = function(req, res) {
-
+	dbHandler.deleteNote(req, function(err){
+		if (!err) {
+			var socketIO = global.socketIO;
+			socketIO.sockets.emit('note: removed', {});
+			res.json(true);
+      	} else {
+        	res.json(false);
+        }
+	});
 };

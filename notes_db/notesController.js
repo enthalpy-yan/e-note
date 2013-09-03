@@ -16,7 +16,11 @@ exports.addNote = function(body, cb){
 }
 
 exports.updateNote = function(req, cb){
-	var note = new Note(req.body);
+	var note = new Note(req.body); 
 	Note.update({_id: req.params.id}, req.body, cb);
+}
+
+exports.deleteNote = function(req, cb){
+	Note.remove({_id: req.params.id}, cb);
 }
 
