@@ -17,6 +17,9 @@ http://news.sina.com.cn/w/gc/2013-08-06/1540199.shtml
     app.js                  --> app config
     bower.json              --> for bower
     package.json            --> for npm
+    notes_db/               --> for mongo db models
+        noteController.js   --> CRUD functions
+        noteModels.js       --> for mongo db model
     public/                 --> all of the files to be used in on the client side
       css/                  --> css files
         app.css             --> default stylesheet
