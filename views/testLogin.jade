@@ -9,6 +9,7 @@ html
   body
     .container
         form.form-signin.form-horizontal(action="/login", method="post")
+            p.offset2.error= message
             h2.form-signin-heading Please sign in
             input.form-control(type='email', name="email", placeholder='Email address', autofocus='autofocus')
             input.form-control(type='password', name="password", placeholder='Password')

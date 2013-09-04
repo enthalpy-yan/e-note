@@ -9,6 +9,7 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     fs = require('fs'),
+    flash = require('connect-flash'),
     mongoose = require('mongoose'),
     passport = require('passport');
 
@@ -58,6 +59,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
+// connect flash for flash messages - should be declared after sessions
+app.use(flash());
+
 // routes should be at the last
 app.use(app.router);
 
@@ -98,6 +102,7 @@ app.get('/login', users.login);
 app.post('/login',passport.authenticate('local', {
 	successRedirect: '/index.html',
     failureRedirect: '/login',
+    failureFlash: 'Invalid email or password.'
     })
 );
 
