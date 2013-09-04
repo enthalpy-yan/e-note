@@ -9,11 +9,13 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     fs = require('fs'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    passport = require('passport');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
 require('./routes/socket')(app, server);
+require('./config/passport')(passport);
 mongoose.connect('mongodb://localhost/test123123');
 
 //Test case for inserting/removing data to/from mongodb. 
@@ -36,14 +38,9 @@ var auth = function(req, res, next){
   	next();
 };
 
-// passport config
-var passport = require('passport');
-require('./config/passport')(passport);
-
 /**
  * Configuration
  */
-
 // all environments
 app.set('port', process.env.PORT || 3001);
 app.set('views', __dirname + '/views');
@@ -81,12 +78,13 @@ if (app.get('env') === 'production') {
  */
 
 // serve index and view partials
-app.get('/', routes.index);
+app.get('/', routes.testLogin);
+app.get('/index.html', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/notes/count', auth, api.countNotes);
-app.get('/api/notes', api.findAllNotes);
+app.get('/api/notes', auth, api.findAllNotes);
 app.get('/api/notes/:id', auth, api.findNotesById);
 app.post('/api/notes', api.addNote);
 app.put('/api/notes/:id', api.updateNote);
@@ -98,7 +96,7 @@ app.get('/signup', users.signup);
 app.post('/users', users.create);
 app.get('/login', users.login);
 app.post('/login',passport.authenticate('local', {
-	successRedirect: '/',
+	successRedirect: '/index.html',
     failureRedirect: '/login',
     })
 );
