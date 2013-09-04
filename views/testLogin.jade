@@ -1,0 +1,12 @@
+form.offset1.login.form-horizontal(action="/login", method="post")
+  p.offset2.error= message
+
+  input.input-medium#email(type='email', name="email", placeholder='Email')
+
+  input.input-medium#password(type='password', name="password", placeholder='Password')
+
+  .form-actions
+    button.btn.btn-primary(type='submit') Login
+      &nbsp;
+      | or&nbsp;
+    a.show-signup(href="/signup") sign up

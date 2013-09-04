@@ -16,7 +16,7 @@ var server = require('http').createServer(app);
 require('./routes/socket')(app, server);
 mongoose.connect('mongodb://localhost/test123123');
 
-// Test case for inserting/removing data to/from mongodb. 
+//Test case for inserting/removing data to/from mongodb. 
 // var models_path = __dirname + '/notes_db'
 // fs.readdirSync(models_path).forEach(function (file) {
 //     require(models_path+'/'+file)
@@ -27,6 +27,18 @@ mongoose.connect('mongodb://localhost/test123123');
 // var addDummyNotes = function () {
 //     Note.remove(function (err) {});
 // }();
+
+// Define a middleware function to be used for every secured routes
+var auth = function(req, res, next){
+  if (!req.isAuthenticated()) 
+  	res.send(401);
+  else
+  	next();
+};
+
+// passport config
+var passport = require('passport');
+require('./config/passport')(passport);
 
 /**
  * Configuration
@@ -41,6 +53,7 @@ app.use(express.cookieParser());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+app.use(express.session({ secret: 'securedsession' }));
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use(app.router);
 
@@ -61,9 +74,7 @@ if (app.get('env') === 'production') {
     //TODO
 };
 
-// passport config
-var passport = require('passport');
-require('./config/passport')(passport);
+ 
 
 /**
  * Routes
@@ -74,13 +85,23 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
-app.get('/api/notes/count', api.countNotes);
+app.get('/api/notes/count', auth, api.countNotes);
 app.get('/api/notes', api.findAllNotes);
-app.get('/api/notes/:id', api.findNotesById);
+app.get('/api/notes/:id', auth, api.findNotesById);
 app.post('/api/notes', api.addNote);
 app.put('/api/notes/:id', api.updateNote);
 app.del('/api/notes/:id', api.deleteNote);
 
+// user routes
+var users = require('./users_db/usersController')
+app.get('/signup', users.signup);
+app.post('/users', users.create);
+app.get('/login', users.login);
+app.post('/login',passport.authenticate('local', {
+	successRedirect: '/',
+    failureRedirect: '/login',
+    })
+);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

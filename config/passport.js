@@ -1,3 +1,4 @@
+require('../users_db/usersModel.js')
 var mongoose = require('mongoose')
   , LocalStrategy = require('passport-local').Strategy
   , User = mongoose.model('User');

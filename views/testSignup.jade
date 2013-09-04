@@ -1,0 +1,14 @@
+form.offset1.form-horizontal(action="/users", method="post")
+  input#name(type='text', name="name", placeholder='Full name', value=user.nickname)
+
+  input#email(type='text', name="email", placeholder='Email', value=user.email)
+
+  input#username(type='text', name="username", placeholder='Username', value=user.username)
+
+  input#password(type='password', name="password", placeholder='Password')
+
+  .form-actions
+    button.btn.btn-primary(type='submit') Sign up
+      &nbsp;
+      | or&nbsp;
+      a.show-login(href="/login") login

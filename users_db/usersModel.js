@@ -14,7 +14,7 @@ var UserSchema = new Schema({
 	nickname: { type: String, default: '' },
 	email: { type: String, default: '' },
 	username: { type: String, default: '' },
-	self_description: { type: text, default: '' },
+	self_description: { type: String, default: '' },
 	hashed_password: { type: String, default: '' },
 	salt: { type: String, default: '' },
 	authToken: { type: String, default: '' },
@@ -82,4 +82,4 @@ UserSchema.methods = {
   }
 };
 
-mongoose.model('User', NoteSchema)
+mongoose.model('User', UserSchema)
