@@ -37,3 +37,7 @@
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+
+.notes-grid-container {
+  margin-top: 0 auto;
+}

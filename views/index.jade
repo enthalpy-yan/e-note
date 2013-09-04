@@ -2,7 +2,7 @@ extends layout
 
 block body
   div(ng-controller='MyCtrl1', ng-init='getNotesLength()')
-    div(infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine', class='ng-cloak')
+    div(class="notes-grid-container", infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine', class='ng-cloak')
       div(ng-repeat='note in notes')
         div(style='width: 800px; height: 200px; margin: auto 0; background-color: grey; margin-top: 10px;')
           p
@@ -10,6 +10,7 @@ block body
 
   script(src='/socket.io/socket.io.js')
   script(src='bower_components/angular/jquery.js')
+  script(src='bower_components/angular/bootstrap.min.js')
   script(src='bower_components/angular/angular.js')
   script(src='bower_components/angular/ng-infinite-scroll.js')
   script(src='bower_components/angular-socket-io/socket.js')
