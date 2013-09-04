@@ -1,12 +1,15 @@
-form.offset1.login.form-horizontal(action="/login", method="post")
-  p.offset2.error= message
-
-  input.input-medium#email(type='email', name="email", placeholder='Email')
-
-  input.input-medium#password(type='password', name="password", placeholder='Password')
-
-  .form-actions
-    button.btn.btn-primary(type='submit') Login
-      &nbsp;
-      | or&nbsp;
-    a.show-signup(href="/signup") sign up
+!!!
+html
+  head
+    meta(charset='utf8')
+    meta(name="viewport", content="width=device-width; initial-scale=1.0")
+    title Project e-note
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/signin.css')
+  body
+    .container
+        form.form-signin.form-horizontal(action="/login", method="post")
+            h2.form-signin-heading Please sign in
+            input.form-control(type='email', name="email", placeholder='Email address', autofocus='autofocus')
+            input.form-control(type='password', name="password", placeholder='Password')
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
