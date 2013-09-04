@@ -16,11 +16,17 @@ http://news.sina.com.cn/w/gc/2013-08-06/1540199.shtml
     
     1. List all notes
         GET /api/notes
+        
     2. Find notes by id
         GET /api/notes/:id
-    3. Add new note
+        
+    3. Get notes count
+        GET /api/notes/count
+        
+    4. Add new note
         POST /api/notes
-    4. Update note by id
+        
+    5. Update note by id
         PUT /api/notes/:id
 
 ### Directory Layout
