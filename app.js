@@ -36,10 +36,19 @@ mongoose.connect('mongodb://localhost/test123123');
 app.set('port', process.env.PORT || 3001);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+// cookieParser should be above session
+app.use(express.cookieParser());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use(app.router);
+
+// use passport session
+app.use(passport.initialize());
+app.use(passport.session());
+
+// routes should be at the last
 app.use(app.router);
 
 // development only
@@ -52,6 +61,9 @@ if (app.get('env') === 'production') {
     //TODO
 };
 
+// passport config
+var passport = require('passport');
+require('./config/passport')(passport);
 
 /**
  * Routes
