@@ -1,18 +1,32 @@
 extends layout
 
 block body
-  div(class="container")
-    div(ng-controller='MyCtrl1', ng-init='getNotesLength()')
-      div(class="notes-grid-container", infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine', class='ng-cloak')
+  nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='') Project E-NOTE
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          form.navbar-form.navbar-right(role='search')
+            .form-group
+              input.form-control(type='text', placeholder='Search')
+
+  div(class='container', ng-controller='MyCtrl1', ng-init='getNotesLength()')
+      div(class='row ng-cloak', infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine')
         div(ng-repeat='note in notes')
-          div(style='width: 100%; height: 200px; margin: auto 0; background-color: grey; margin-top: 10px;')
-            p
-              | {{note.sentence}}
+          div(class='col-md-4 col-sm-6 item', style='margin-bottom: 20px;')
+            div(class='col-md-12 item', style='background-color: #f8f8f8;')
+              p(style='font-size: 120px; text-align: center;')
+               | {{note.sentence}}
 
   script(src='/socket.io/socket.io.js')
   script(src='bower_components/angular/jquery.js')
   script(src='bower_components/angular/bootstrap.min.js')
   script(src='bower_components/angular/angular.js')
+  script(src='bower_components/angular/jquery.wookmark.js')
   script(src='bower_components/angular/ng-infinite-scroll.js')
   script(src='bower_components/angular-socket-io/socket.js')
   script(src='js/app.js')

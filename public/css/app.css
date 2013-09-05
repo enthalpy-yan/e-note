@@ -1,32 +1,16 @@
-/* app css stylesheet */
+/* Global app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+ul {
+    list-style-type: none;
 }
 
-.menu:before {
-  content: "[";
+body {
+  background-color: #2c3e50;
+  padding-top: 6em;
 }
 
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+.item {
+  height: 200px;
 }
 
 /* 
@@ -38,6 +22,3 @@
   display: none !important;
 }
 
-.notes-grid-container {
-  margin-top: 0 auto;
-}

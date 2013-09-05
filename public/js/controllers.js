@@ -6,7 +6,7 @@ angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, socket) {
 
   }).
-  controller('MyCtrl1', function ($scope, $http, socket) {
+  controller('MyCtrl1', function ($scope, $timeout, $http, socket) {
     //global variable
     var PAGELIMIT = 4;
 
@@ -15,14 +15,23 @@ angular.module('myApp.controllers', []).
     $scope.endOfLine = false;
     $scope.notesLength = 5;
 
+    function initWookmark(){
+      angular.element("#items li").wookmark({
+          autoResize: true,
+          container: angular.element("#items"),
+          offset: 300,
+          itemWidth: 300
+      });
+    }
+
     $scope.getNotesLength = function() {
       $http.get('/api/notes/count').success(function(data) {
         $scope.notesLength = data;
       });
+      $timeout(initWookmark, 0);
     }
 
     socket.on('note: added', function (data) {
-      $scope.getNotesLength();
       $scope.loadMore($scope.limit - PAGELIMIT + 1);
     });
 
@@ -39,7 +48,6 @@ angular.module('myApp.controllers', []).
 
       $http.get('/api/notes?limit=' + limit).success(function(data) {
         $scope.notes = data;
-        console.log($scope.notes);
         $scope.limit += PAGELIMIT;
       });
     };
