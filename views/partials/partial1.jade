@@ -7,7 +7,7 @@ div(ng-controller='MyCtrl1', ng-init='getNotesLength()')
          | Loading data...
       div(style='position: fixed; z-index: 10; background-color: #eee; left: 0; width: 100%;', ng-style='bottomShadow')
         .col-md-6.col-md-offset-3(style='padding-top: 22px; padding-bottom: 15px;')
-          input(style='width:100%;', type='text', ng-model='query')
+          input(style='width:100%;', type='text', ng-model='query.sentence')
       div(class='row ng-cloak', style='padding-top: 5em;', infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine')
         div(ng-repeat='note in notes | filter: query')
           div(class='col-md-4 item', style='margin-bottom: 20px;', ng-animate="{enter: 'animate-enter'}")
