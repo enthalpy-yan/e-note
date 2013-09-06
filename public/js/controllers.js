@@ -114,6 +114,18 @@ angular.module('myApp.controllers', []).
     }
 
   }).
-  controller('MyCtrl2', function ($scope) {
-    // write Ctrl here
+  controller('navbarController', function ($scope, $location) {
+    $scope.paths = {
+      '/index': false,
+      '/about': false,
+      '/contact': false
+    }
+
+    $scope.$watch(function(){
+      return $location.path();
+    }, function(newValue, oldValue) { 
+      $scope.paths[newValue] = true;
+       $scope.paths[oldValue] = false;
+    });
+
   });

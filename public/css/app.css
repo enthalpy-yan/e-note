@@ -9,6 +9,12 @@
   display: none !important;
 }
 
+/*Remove Safari/Chrome textinput/textarea glow*/
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
 /*
 	nav bar color
 */
@@ -51,12 +57,6 @@
     background-color: #FFFFFF;
 }
 
-
-/*Remove Safari/Chrome textinput/textarea glow*/
-:focus {
-  outline-color: transparent;
-  outline-style: none;
-}
 
 .form-group {
 	width: 25em;
@@ -147,6 +147,14 @@ body {
 .animate-enter.animate-enter-active {
  /* The animation code itself */
  opacity: 1;
+}
+
+.input-bar-container {
+	position: fixed; 
+	z-index: 10; 
+	background-color: #eee; 
+	left: 0; 
+	width: 100%;
 }
 
 input[type=text]
