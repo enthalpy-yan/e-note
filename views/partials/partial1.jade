@@ -1,25 +1,23 @@
 div(ng-controller='MyCtrl1', ng-init='getNotesLength()')
-    .col-md-12(style='position: fixed; z-index: 10; background-color: #eee;', ng-style='bottomShadow')
-      .col-md-6.col-md-offset-3(style='padding-top: 20px; padding-bottom: 15px;')
-          .input-group
-              input.form-control(type='text')
-              span.input-group-btn
-                button.btn.btn-default(type='button', ng-model='query') Search
 
-  div(class='row', style='padding-top: 6em;')
+  div(class='row')
     .container
       div(ng-show='busy', class='col-md-offset-4', style='position:fixed; z-index:10; bottom:0;')
         p(style="font-size:40px;")
          | Loading data...
-      div(class='row ng-cloak', infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine')
-        div(ng-repeat='note in notes | filter:query')
-          div(class='col-md-4 col-sm-6 item', style='margin-bottom: 20px;', ng-animate="{enter: 'animate-enter'}")
-            div(class='col-md-12 noteStyle', ng-mouseover='showIcon($index)', ng-mouseleave='hideIcon($index)')
-              div(class='row')
-                div(class='col-md-12 note-tag-bar', ng-style='barColor($index)')
-                  div(class='row ng-cloak', ng-show='note.show == true', ng-animate="{show: 'fadeIn'}")
-                      span.glyphicon.glyphicon-edit.edit-icon(ng-click='')
-                      span.glyphicon.glyphicon-trash.edit-delete(ng-click="deleteNote($index)")
-              div(class='row')
-                p
-                  | {{note.sentence}}
+      div(style='position: fixed; z-index: 10; background-color: #eee; left: 0; width: 100%;', ng-style='bottomShadow')
+        .col-md-6.col-md-offset-3(style='padding-top: 20px; padding-bottom: 15px;')
+          input(type='text', ng-model='query')
+      div(class='row ng-cloak', style='padding-top: 5em;', infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine')
+        div(ng-repeat='note in notes | filter: query')
+          div(class='col-md-4 item', style='margin-bottom: 20px;', ng-animate="{enter: 'animate-enter'}")
+            div(class='container')
+              div(class='col-md-12 col-xs-12 noteStyle', ng-mouseover='showIcon($index)', ng-mouseleave='hideIcon($index)')
+                div(class='row')
+                  div(class='col-md-12 note-tag-bar', ng-style='barColor($index)')
+                    div(class='row ng-cloak', ng-show='note.show == true', ng-animate="{show: 'fadeIn'}")
+                        span.glyphicon.glyphicon-edit.edit-icon(ng-click='')
+                        span.glyphicon.glyphicon-trash.edit-delete(ng-click="deleteNote($index)")
+                div(class='row')
+                  p
+                    | {{note.sentence}}

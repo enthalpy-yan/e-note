@@ -22,6 +22,12 @@ angular.module('myApp.controllers', []).
       "c0" : "#3498db"
     }
 
+    $scope.testNotes = [
+      {"sentence":"1"},
+      {"sentence":"2"},      
+      {"sentence":"3"}
+    ]
+
     $scope.limit = PAGELIMIT;
     $scope.notes = [];
     $scope.endOfLine = false;
