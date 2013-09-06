@@ -1,18 +1,5 @@
 /* Global app css stylesheet */
 
-ul {
-    list-style-type: none;
-}
-
-body {
-  background-color: #2c3e50;
-  padding-top: 6em;
-}
-
-.item {
-  height: 200px;
-}
-
 /* 
   Allow angular.js to be loaded in body, hiding cloaked elements until 
   templates compile.  The !important is important given that there may be 
@@ -21,4 +8,138 @@ body {
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+
+/*
+	nav bar color
+*/
+
+/* navbar */
+.navbar-inverse {
+  background-color: #34495e;
+  border: 0px;
+}
+
+/* title */
+.navbar-inverse .navbar-brand {
+  color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-brand .a:hover{
+  color: #000000;
+}
+
+/* link */
+.navbar-inverse .navbar-nav > li > a {
+  color: #5E5E5E;
+}
+
+/*toggle*/
+.navbar-inverse .navbar-toggle {
+	border: 0px;
+}
+
+/*nav bar form*/
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+	border: 0px;
+}
+
+/* active link */
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+.form-group {
+	width: 25em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  background-color: #eee;
+  padding-top: 3em;
+}
+
+.item {
+  height: 230px;
+}
+
+.noteStyle {
+	background-color: #f8f8f8;
+	height: 230px;
+}
+
+.noteDetail {
+	height: 500px;
+	background-color: #f8f8f8;
+}
+
+.note-tag-bar {
+	height: 40px;
+	background-color: grey;
+}
+
+.edit-icon {
+	font-size: 18px; 
+	margin-top: 10px;
+	margin-left: 79%;
+	color: #f8f8f8;
+}
+
+.edit-delete {
+	font-size: 18px; 
+	margin-top: 10px;
+	margin-left: 4%;
+	color: #f8f8f8;
+}
+
+.fadeIn, .fadeOut {
+  -webkit-transition: 0.5s linear opacity;
+  -moz-transition: 0.5s linear opacity;
+  -o-transition: 0.5s linear opacity;
+  transition: 0.5s linear opacity;
+}
+.fadeIn{
+  opacity:0;
+}
+.fadeOut{
+  opacity:1;
+}
+.fadeIn.fadeIn-active {
+  opacity: 1;
+}
+.fadeOut.fadeOut-active{
+    opacity:0;
+}
+
+/*
+ The animate-enter CSS class is the event name that you
+ have provided within the ngAnimate attribute.
+*/
+.animate-enter {
+ -webkit-transition: 1s linear all; /* Safari/Chrome */
+ -moz-transition: 1s linear all; /* Firefox */
+ -o-transition: 1s linear all; /* Opera */
+ transition: 1s linear all; /* IE10+ and Future Browsers */
+ 
+ /* The animation preparation code */
+ opacity: 0;
+}
+ 
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.animate-enter.animate-enter-active {
+ /* The animation code itself */
+ opacity: 1;
+}
+
 

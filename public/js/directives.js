@@ -3,8 +3,13 @@
 /* Directives */
 
 angular.module('myApp.directives', []).
-  directive('appVersion', function (version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
+  directive('fadey', function (version) {
+    return {
+        restrict: 'A',
+        link: function(scope, elm, attrs) {
+            jQuery(elm)
+                .css({ opacity: 0 })
+                .animate({ opacity: 1 }, parseInt(attrs.fadey));
+        }
     };
   });

@@ -14,7 +14,7 @@ angular.module('myApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/view1', {
+    when('/index', {
       templateUrl: 'partials/partial1',
       controller: 'MyCtrl1'
     }).
@@ -23,7 +23,7 @@ config(function ($routeProvider, $locationProvider) {
       controller: 'MyCtrl2'
     }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/index'
     });
 
   $locationProvider.html5Mode(true);
