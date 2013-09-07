@@ -9,6 +9,12 @@
   display: none !important;
 }
 
+/*Remove Safari/Chrome textinput/textarea glow*/
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
 /*
 	nav bar color
 */
@@ -51,11 +57,46 @@
     background-color: #FFFFFF;
 }
 
+/*Reset input bar style*/
+.input-bar-container {
+  position: fixed; 
+  z-index: 10; 
+  background-color: #eee; 
+  left: 0; 
+  width: 100%;
+}
 
-/*Remove Safari/Chrome textinput/textarea glow*/
-:focus {
-  outline-color: transparent;
-  outline-style: none;
+input[type=text]
+{
+    background-color: #f8f8f8;
+    border:solid 1px #BFBDBD;
+    color: #979797;
+    height: 28px;
+    padding-left:10px;
+    width: 191px;
+}
+input[type=button]
+{
+    background-color: #1E1E1E;
+    color: #979797;
+    height: 24px;
+    width: 103px;
+    color: #bbbbbb;
+    text-transform:uppercase;
+    box-shadow:-1px 2px #6E6B6A inset;
+}
+
+input[type=button], input[type=text]
+{
+    border: 1;
+    border-radius: 0px;
+    font-family: Sansation,Arial;
+}
+
+input:focus {
+  -webkit-box-shadow: 0 0 3px 1px #4d90fe;
+  -moz-box-shadow: 0 0 3px 1px #4d90fe;
+  box-shadow: 0 0 3px 1px #4d90fe;
 }
 
 .form-group {
@@ -106,6 +147,7 @@ body {
 	color: #f8f8f8;
 }
 
+/*Icon fade in animation*/
 .fadeIn, .fadeOut {
   -webkit-transition: 0.5s linear opacity;
   -moz-transition: 0.5s linear opacity;
@@ -125,61 +167,47 @@ body {
     opacity:0;
 }
 
-/*
- The animate-enter CSS class is the event name that you
- have provided within the ngAnimate attribute.
-*/
-.animate-enter {
- -webkit-transition: 1s linear all; /* Safari/Chrome */
- -moz-transition: 1s linear all; /* Firefox */
- -o-transition: 1s linear all; /* Opera */
- transition: 1s linear all; /* IE10+ and Future Browsers */
- 
- /* The animation preparation code */
- opacity: 0;
+.fadeIn, .fadeOut {
+  -webkit-transition: 0.5s linear opacity;
+  -moz-transition: 0.5s linear opacity;
+  -o-transition: 0.5s linear opacity;
+  transition: 0.5s linear opacity;
 }
- 
-/*
- Keep in mind that you want to combine both CSS
- classes together to avoid any CSS-specificity
- conflicts
-*/
-.animate-enter.animate-enter-active {
- /* The animation code itself */
- opacity: 1;
+.fadeIn{
+  opacity:0;
+}
+.fadeOut{
+  opacity:1;
+}
+.fadeIn.fadeIn-active {
+  opacity: 1;
+}
+.fadeOut.fadeOut-active{
+    opacity:0;
 }
 
-input[type=text]
-{
-    background-color: #f8f8f8;
-    border:solid 1px #BFBDBD;
-    color: #979797;
-    height: 28px;
-    padding-left:10px;
-    width: 191px;
-}
-input[type=button]
-{
-    background-color: #1E1E1E;
-    color: #979797;
-    height: 24px;
-    width: 103px;
-    color: #bbbbbb;
-    text-transform:uppercase;
-    box-shadow:-1px 2px #6E6B6A inset;
+/*Add new note container stylesheet*/
+
+.new-note-container {
+  height: 600px;
+  background-color: #f8f8f8;
 }
 
-input[type=button], input[type=text]
-{
-    border: 1;
-    border-radius: 0px;
-    font-family: Sansation,Arial;
+.add-note-container {
+  padding-top: 3em;
 }
 
-input:focus {
-	-webkit-box-shadow: 0 0 3px 1px #4d90fe;
-	-moz-box-shadow: 0 0 3px 1px #4d90fe;
-	box-shadow: 0 0 3px 1px #4d90fe;
+.add-note-tag-bar-container {
+  height: 60px;
+  background-color: #95a5a6;
+}
+
+#phraseInput {
+
+}
+
+#translationInput {
+
 }
 
 

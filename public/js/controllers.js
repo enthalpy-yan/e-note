@@ -64,6 +64,7 @@ angular.module('myApp.controllers', []).
     }
 
     socket.on('note: added', function (data) {
+      console.log($scope.notes.length);
       $scope.loadMore($scope.notes.length + 1);
     });
 
@@ -114,6 +115,42 @@ angular.module('myApp.controllers', []).
     }
 
   }).
-  controller('MyCtrl2', function ($scope) {
-    // write Ctrl here
+  controller('navbarController', function ($scope, $location) {
+    $scope.paths = {
+      '/index': false,
+      '/about': false,
+      '/contact': false
+    }
+
+    $scope.collapseFunc = function() {
+      if ($('.navbar-toggle').is(":visible"))
+        $('#slideMenu').collapse('toggle');
+    }
+
+    $scope.$watch(function(){
+      return $location.path();
+    }, function(newValue, oldValue) { 
+      $scope.paths[newValue] = true;
+       $scope.paths[oldValue] = false;
+    });
+  }).
+  controller('addNoteController', function ($scope, $http, $location) {
+    $scope.note = {};
+
+    $scope.addNote = function() {
+      $http.post('/api/notes',{sentence: $scope.note.sentence, translation: $scope.note.translation}).
+          success(function(data, status, headers, config) {
+            
+          }).
+          error(function(data, status, headers, config) {
+              
+          });
+     };         
   });
+
+
+
+
+
+
+

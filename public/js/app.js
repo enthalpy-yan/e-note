@@ -22,6 +22,16 @@ config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/partial2',
       controller: 'MyCtrl2'
     }).
+    when('/about', {
+      templateUrl: 'partials/about'
+    }).
+    when('/contact', {
+      templateUrl: 'partials/contact'
+    }).
+    when('/add', {
+      templateUrl: 'partials/add',
+      controller: 'addNoteController'
+    }).
     otherwise({
       redirectTo: '/index'
     });
