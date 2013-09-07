@@ -31,7 +31,7 @@ angular.module('myApp.controllers', []).
     $scope.limit = PAGELIMIT;
     $scope.notes = [];
     $scope.endOfLine = false;
-    $scope.notesLength = 0;
+    $scope.notesLength = 1;
     $scope.busy = false;
     $scope.bottomShadow = {    
       "box-shadow": "0 0px 0px 0px #000000",
@@ -56,15 +56,20 @@ angular.module('myApp.controllers', []).
     });
 
     $scope.getNotesLength = function() {
-      $scope.busy = true;
       $http.get('/api/notes/count').success(function(data) {
         $scope.notesLength = data;
-        $scope.busy = false;
+        $http.get('/api/notes?limit=9').success(function(data) {
+          $scope.notes = data;
+          $scope.limit += PAGELIMIT;
+          $scope.busy = false;
+        });
       });
     }
 
     socket.on('note: added', function (data) {
-      $scope.loadMore($scope.notes.length + 1);
+      $http.get('/api/notes').success(function(data) {
+        $scope.notes.unshift(data[0]);
+      });
     });
 
     socket.on('note: updated', function (data) {
@@ -76,16 +81,16 @@ angular.module('myApp.controllers', []).
     });
 
     $scope.loadMore = function(limit) {
-      if ($scope.notes.length != 0) {
-        if (($scope.notes.length) >= $scope.notesLength) {
-          $scope.endOfLine = true;
-          return;
-        }
+      $scope.busy = true;
+      if (($scope.notes.length) >= $scope.notesLength) {
+        $scope.busy = false;
+        $scope.endOfLine = true;
+        return;
       }
-
       $http.get('/api/notes?limit=' + limit).success(function(data) {
         $scope.notes = data;
         $scope.limit += PAGELIMIT;
+        $scope.busy = false;
       });
     };
 
@@ -119,6 +124,8 @@ angular.module('myApp.controllers', []).
         "background-color" : $scope.flatUiColors['c' + colorNum]
       };
     }
+
+    $scope.getNotesLength();
 
   }).
   controller('navbarController', function ($scope, $location) {
@@ -154,10 +161,3 @@ angular.module('myApp.controllers', []).
           });
      };         
   });
-
-
-
-
-
-
-
