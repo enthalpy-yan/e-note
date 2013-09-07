@@ -31,7 +31,7 @@ angular.module('myApp.controllers', []).
     $scope.limit = PAGELIMIT;
     $scope.notes = [];
     $scope.endOfLine = false;
-    $scope.notesLength = 1;
+    $scope.notesLength = 0;
     $scope.busy = false;
     $scope.bottomShadow = {    
       "box-shadow": "0 0px 0px 0px #000000",
@@ -82,11 +82,14 @@ angular.module('myApp.controllers', []).
 
     $scope.loadMore = function(limit) {
       $scope.busy = true;
-      if (($scope.notes.length) >= $scope.notesLength) {
-        $scope.busy = false;
-        $scope.endOfLine = true;
-        return;
+      if ($scope.notesLength == 0) {
+        if (($scope.notes.length) >= $scope.notesLength) {
+          $scope.busy = false;
+          $scope.endOfLine = true;
+          return;
+        }
       }
+
       $http.get('/api/notes?limit=' + limit).success(function(data) {
         $scope.notes = data;
         $scope.limit += PAGELIMIT;
