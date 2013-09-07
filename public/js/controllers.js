@@ -60,7 +60,6 @@ angular.module('myApp.controllers', []).
         $scope.notesLength = data;
         $http.get('/api/notes?limit=9').success(function(data) {
           $scope.notes = data;
-          $scope.limit += PAGELIMIT;
           $scope.busy = false;
         });
       });
@@ -82,14 +81,6 @@ angular.module('myApp.controllers', []).
 
     $scope.loadMore = function(limit) {
       $scope.busy = true;
-      if ($scope.notesLength == 0) {
-        if (($scope.notes.length) >= $scope.notesLength) {
-          $scope.busy = false;
-          $scope.endOfLine = true;
-          return;
-        }
-      }
-
       $http.get('/api/notes?limit=' + limit).success(function(data) {
         $scope.notes = data;
         $scope.limit += PAGELIMIT;
@@ -127,8 +118,6 @@ angular.module('myApp.controllers', []).
         "background-color" : $scope.flatUiColors['c' + colorNum]
       };
     }
-
-    $scope.getNotesLength();
 
   }).
   controller('navbarController', function ($scope, $location) {
