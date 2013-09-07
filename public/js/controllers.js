@@ -64,7 +64,6 @@ angular.module('myApp.controllers', []).
     }
 
     socket.on('note: added', function (data) {
-      console.log($scope.notes.length);
       $scope.loadMore($scope.notes.length + 1);
     });
 
@@ -77,6 +76,13 @@ angular.module('myApp.controllers', []).
     });
 
     $scope.loadMore = function(limit) {
+      if ($scope.notes.length != 0) {
+        if (($scope.notes.length) >= $scope.notesLength) {
+          $scope.endOfLine = true;
+          return;
+        }
+      }
+
       $http.get('/api/notes?limit=' + limit).success(function(data) {
         $scope.notes = data;
         $scope.limit += PAGELIMIT;
@@ -119,7 +125,8 @@ angular.module('myApp.controllers', []).
     $scope.paths = {
       '/index': false,
       '/about': false,
-      '/contact': false
+      '/contact': false,
+      '/add':false
     }
 
     $scope.collapseFunc = function() {
@@ -134,13 +141,13 @@ angular.module('myApp.controllers', []).
        $scope.paths[oldValue] = false;
     });
   }).
-  controller('addNoteController', function ($scope, $http, $location) {
+  controller('addNoteController', function ($scope, $http, $location, $window) {
     $scope.note = {};
 
     $scope.addNote = function() {
       $http.post('/api/notes',{sentence: $scope.note.sentence, translation: $scope.note.translation}).
           success(function(data, status, headers, config) {
-            
+            $window.location.href = '/'
           }).
           error(function(data, status, headers, config) {
               

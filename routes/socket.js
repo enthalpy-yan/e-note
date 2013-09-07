@@ -3,6 +3,7 @@ module.exports = function(app, server) {
 	global.socketIO = socketIO;
 
 	socketIO.set("transports", ["xhr-polling"]);
+	socketIO.set("polling duration", 10);
 	socketIO.sockets.on('connection', function (socket) {
 
 	  socket.on('disconnect', function () {

@@ -9,6 +9,7 @@
     "mongoose": "latest",
     "passport": "latest",
     "connect-mongo": "latest",
-    "passport-local": "latest"
+    "passport-local": "latest",
+    "mongodb" : "1.1.11"
   }
 }

@@ -121,11 +121,22 @@ body {
 .noteStyle {
 	background-color: #f8f8f8;
 	height: 230px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;;
+  -o-transition: all 0.3s ease-in-out;;
+  transition: all 0.3s ease-in-out;;
+
 }
 
 .noteDetail {
 	height: 500px;
 	background-color: #f8f8f8;
+}
+
+.tag-bar-date {
+  color: #f8f8f8; 
+  font-size: 20px; 
+  margin-top: 5px;
 }
 
 .note-tag-bar {
@@ -136,14 +147,12 @@ body {
 .edit-icon {
 	font-size: 18px; 
 	margin-top: 10px;
-	margin-left: 79%;
 	color: #f8f8f8;
 }
 
 .edit-delete {
 	font-size: 18px; 
 	margin-top: 10px;
-	margin-left: 4%;
 	color: #f8f8f8;
 }
 
@@ -186,6 +195,15 @@ body {
     opacity:0;
 }
 
+/*note content stylesheet*/
+.note-content {
+  margin-top: 9px;
+  color: #777;
+  font-size: 18px;
+  overflow: auto;
+}
+
+
 /*Add new note container stylesheet*/
 
 .new-note-container {
@@ -202,12 +220,5 @@ body {
   background-color: #95a5a6;
 }
 
-#phraseInput {
-
-}
-
-#translationInput {
-
-}
 
 

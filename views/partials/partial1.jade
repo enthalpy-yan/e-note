@@ -6,17 +6,33 @@ div(ng-controller='MyCtrl1', ng-init='getNotesLength()')
          | Loading data...
       div(class='input-bar-container', ng-style='bottomShadow')
         .col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3(style='padding-top: 22px; padding-bottom: 15px;')
-          input(style='width:100%;', type='text', ng-model='query.sentence')
+          input(style='width:100%;', type='text', ng-model='query')
       div(class='row ng-cloak', style='padding-top: 5em;', infinite-scroll='loadMore(limit)', infinite-scroll-disabled='endOfLine')
         div(ng-repeat='note in notes | filter: query')
           div(class='col-sm-6 col-md-4 item', style='margin-bottom: 20px;', ng-animate="{enter: 'animate-enter'}")
               div(class='col-md-12 col-xs-12 noteStyle', ng-mouseover='showIcon($index)', ng-mouseleave='hideIcon($index)')
                 div(class='row')
                   div(class='col-md-12 note-tag-bar', ng-style='barColor($index)')
-                    div(class='row ng-cloak', ng-show='note.show == true', ng-animate="{show: 'fadeIn'}")
+                    .row
+                      .col-xs-9.col-sm-9.col-md-9(style='height:40px;')
+                        p(class='tag-bar-date')
+                          | {{note.createdAt | date:'MMM dd'}} 
+                      .col-xs-3.col-sm-3.col-md-3(style='height:40px;', ng-show='note.show == true', ng-animate="{show: 'fadeIn'}")
                         span.glyphicon.glyphicon-edit.edit-icon(ng-click='')
-                        span.glyphicon.glyphicon-trash.edit-delete(ng-click="deleteNote($index)")
-                div(class='container')
+                        span.pull-right.glyphicon.glyphicon-trash.edit-delete(ng-click="deleteNote($index)")
+                    //- div(class='row')
+                    //-   div(class='.col-xs-6.col-sm-6.col-md-6')
+                    //-     {{note.createdAt | date:'MMM dd'}} 
+                    //-   div(class='ng-cloak .col-xs-6.col-sm-6.col-md-6', ng-show='note.show == true', ng-animate="{show: 'fadeIn'}")
+                    //-     span.glyphicon.glyphicon-edit.edit-icon(ng-click='') 
+                    //-     span.glyphicon.glyphicon-trash.edit-delete(ng-click="deleteNote($index)")
+                div(class='container', style='height:180px; overflow:scroll;')
                   div(class='row')
-                    p
-                      | {{note.sentence}}
+                    .container
+                      div(class='row note-content')
+                        p
+                          | {{note.sentence}}
+                      div(class='row note-content')
+                        p
+                          | {{note.translation}}
+

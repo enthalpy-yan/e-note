@@ -19,7 +19,7 @@ block body
             li(ng-class="{'active': paths['/contact'] == true}")
               a(href='/contact', ng-click='collapseFunc()') Contact
           ul.nav.navbar-nav.navbar-right
-            li
+            li(ng-class="{'active': paths['/add'] == true}")
               a(class="glyphicon glyphicon-pencil", style='font-size:16px; cursor: pointer;', href='/add', ng-click='collapseFunc()') ADD
 
 
