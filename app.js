@@ -135,7 +135,7 @@ app.post('/login', function(req, res, next) {
   });
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+app.get('*', auth, routes.index);
 
 /**
  * Start Server
