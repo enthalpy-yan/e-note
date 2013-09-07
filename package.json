@@ -10,6 +10,7 @@
     "passport": "latest",
     "connect-mongo": "latest",
     "passport-local": "latest",
-    "mongodb" : "1.1.11"
+    "mongodb" : "1.1.11",
+    "connect-flash": "latest"
   }
 }
