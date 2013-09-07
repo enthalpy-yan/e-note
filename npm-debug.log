@@ -1,0 +1,331 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.3.5
+3 info using node@v0.10.17
+4 warn package.json application-name@0.0.0 No description
+5 warn package.json application-name@0.0.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ '/Users/hanyan/Desktop/e-note',
+7 verbose install   [ 'node',
+7 verbose install     'npm',
+7 verbose install     'socket.io',
+7 verbose install     'express',
+7 verbose install     'jade',
+7 verbose install     'mongoose',
+7 verbose install     'passport',
+7 verbose install     'connect-mongo',
+7 verbose install     'passport-local',
+7 verbose install     'mongodb',
+7 verbose install     'connect-flash' ] ]
+8 info preinstall application-name@0.0.0
+9 verbose readDependencies using package.json deps
+10 verbose already installed skipping socket.io@~0.9.16 /Users/hanyan/Desktop/e-note
+11 verbose already installed skipping express@~3.2.6 /Users/hanyan/Desktop/e-note
+12 verbose already installed skipping jade@~0.31.2 /Users/hanyan/Desktop/e-note
+13 verbose cache add [ 'mongoose@latest', null ]
+14 verbose cache add name=undefined spec="mongoose@latest" args=["mongoose@latest",null]
+15 verbose parsed url { protocol: null,
+15 verbose parsed url   slashes: null,
+15 verbose parsed url   auth: null,
+15 verbose parsed url   host: null,
+15 verbose parsed url   port: null,
+15 verbose parsed url   hostname: null,
+15 verbose parsed url   hash: null,
+15 verbose parsed url   search: null,
+15 verbose parsed url   query: null,
+15 verbose parsed url   pathname: 'mongoose@latest',
+15 verbose parsed url   path: 'mongoose@latest',
+15 verbose parsed url   href: 'mongoose@latest' }
+16 verbose cache add name="mongoose" spec="latest" args=["mongoose","latest"]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'latest',
+17 verbose parsed url   path: 'latest',
+17 verbose parsed url   href: 'latest' }
+18 verbose addNamed [ 'mongoose', 'latest' ]
+19 verbose addNamed [ null, null ]
+20 verbose cache add [ 'passport@latest', null ]
+21 verbose cache add name=undefined spec="passport@latest" args=["passport@latest",null]
+22 verbose parsed url { protocol: null,
+22 verbose parsed url   slashes: null,
+22 verbose parsed url   auth: null,
+22 verbose parsed url   host: null,
+22 verbose parsed url   port: null,
+22 verbose parsed url   hostname: null,
+22 verbose parsed url   hash: null,
+22 verbose parsed url   search: null,
+22 verbose parsed url   query: null,
+22 verbose parsed url   pathname: 'passport@latest',
+22 verbose parsed url   path: 'passport@latest',
+22 verbose parsed url   href: 'passport@latest' }
+23 verbose cache add name="passport" spec="latest" args=["passport","latest"]
+24 verbose parsed url { protocol: null,
+24 verbose parsed url   slashes: null,
+24 verbose parsed url   auth: null,
+24 verbose parsed url   host: null,
+24 verbose parsed url   port: null,
+24 verbose parsed url   hostname: null,
+24 verbose parsed url   hash: null,
+24 verbose parsed url   search: null,
+24 verbose parsed url   query: null,
+24 verbose parsed url   pathname: 'latest',
+24 verbose parsed url   path: 'latest',
+24 verbose parsed url   href: 'latest' }
+25 verbose addNamed [ 'passport', 'latest' ]
+26 verbose addNamed [ null, null ]
+27 verbose cache add [ 'connect-mongo@latest', null ]
+28 verbose cache add name=undefined spec="connect-mongo@latest" args=["connect-mongo@latest",null]
+29 verbose parsed url { protocol: null,
+29 verbose parsed url   slashes: null,
+29 verbose parsed url   auth: null,
+29 verbose parsed url   host: null,
+29 verbose parsed url   port: null,
+29 verbose parsed url   hostname: null,
+29 verbose parsed url   hash: null,
+29 verbose parsed url   search: null,
+29 verbose parsed url   query: null,
+29 verbose parsed url   pathname: 'connect-mongo@latest',
+29 verbose parsed url   path: 'connect-mongo@latest',
+29 verbose parsed url   href: 'connect-mongo@latest' }
+30 verbose cache add name="connect-mongo" spec="latest" args=["connect-mongo","latest"]
+31 verbose parsed url { protocol: null,
+31 verbose parsed url   slashes: null,
+31 verbose parsed url   auth: null,
+31 verbose parsed url   host: null,
+31 verbose parsed url   port: null,
+31 verbose parsed url   hostname: null,
+31 verbose parsed url   hash: null,
+31 verbose parsed url   search: null,
+31 verbose parsed url   query: null,
+31 verbose parsed url   pathname: 'latest',
+31 verbose parsed url   path: 'latest',
+31 verbose parsed url   href: 'latest' }
+32 verbose addNamed [ 'connect-mongo', 'latest' ]
+33 verbose addNamed [ null, null ]
+34 silly lockFile 73e949f4-mongoose-latest mongoose@latest
+35 verbose lock mongoose@latest /Users/hanyan/.npm/73e949f4-mongoose-latest.lock
+36 verbose cache add [ 'passport-local@latest', null ]
+37 verbose cache add name=undefined spec="passport-local@latest" args=["passport-local@latest",null]
+38 verbose parsed url { protocol: null,
+38 verbose parsed url   slashes: null,
+38 verbose parsed url   auth: null,
+38 verbose parsed url   host: null,
+38 verbose parsed url   port: null,
+38 verbose parsed url   hostname: null,
+38 verbose parsed url   hash: null,
+38 verbose parsed url   search: null,
+38 verbose parsed url   query: null,
+38 verbose parsed url   pathname: 'passport-local@latest',
+38 verbose parsed url   path: 'passport-local@latest',
+38 verbose parsed url   href: 'passport-local@latest' }
+39 verbose cache add name="passport-local" spec="latest" args=["passport-local","latest"]
+40 verbose parsed url { protocol: null,
+40 verbose parsed url   slashes: null,
+40 verbose parsed url   auth: null,
+40 verbose parsed url   host: null,
+40 verbose parsed url   port: null,
+40 verbose parsed url   hostname: null,
+40 verbose parsed url   hash: null,
+40 verbose parsed url   search: null,
+40 verbose parsed url   query: null,
+40 verbose parsed url   pathname: 'latest',
+40 verbose parsed url   path: 'latest',
+40 verbose parsed url   href: 'latest' }
+41 verbose addNamed [ 'passport-local', 'latest' ]
+42 verbose addNamed [ null, null ]
+43 silly lockFile 00a116b3-passport-local-latest passport-local@latest
+44 verbose lock passport-local@latest /Users/hanyan/.npm/00a116b3-passport-local-latest.lock
+45 silly lockFile 771f2547-passport-latest passport@latest
+46 verbose lock passport@latest /Users/hanyan/.npm/771f2547-passport-latest.lock
+47 silly lockFile 02f15c80-connect-mongo-latest connect-mongo@latest
+48 verbose lock connect-mongo@latest /Users/hanyan/.npm/02f15c80-connect-mongo-latest.lock
+49 verbose already installed skipping mongodb@1.1.11 /Users/hanyan/Desktop/e-note
+50 info addNameTag [ 'mongoose', 'latest' ]
+51 info addNameTag [ 'passport-local', 'latest' ]
+52 info addNameTag [ 'passport', 'latest' ]
+53 info addNameTag [ 'connect-mongo', 'latest' ]
+54 verbose cache add [ 'connect-flash@latest', null ]
+55 verbose cache add name=undefined spec="connect-flash@latest" args=["connect-flash@latest",null]
+56 verbose parsed url { protocol: null,
+56 verbose parsed url   slashes: null,
+56 verbose parsed url   auth: null,
+56 verbose parsed url   host: null,
+56 verbose parsed url   port: null,
+56 verbose parsed url   hostname: null,
+56 verbose parsed url   hash: null,
+56 verbose parsed url   search: null,
+56 verbose parsed url   query: null,
+56 verbose parsed url   pathname: 'connect-flash@latest',
+56 verbose parsed url   path: 'connect-flash@latest',
+56 verbose parsed url   href: 'connect-flash@latest' }
+57 verbose cache add name="connect-flash" spec="latest" args=["connect-flash","latest"]
+58 verbose parsed url { protocol: null,
+58 verbose parsed url   slashes: null,
+58 verbose parsed url   auth: null,
+58 verbose parsed url   host: null,
+58 verbose parsed url   port: null,
+58 verbose parsed url   hostname: null,
+58 verbose parsed url   hash: null,
+58 verbose parsed url   search: null,
+58 verbose parsed url   query: null,
+58 verbose parsed url   pathname: 'latest',
+58 verbose parsed url   path: 'latest',
+58 verbose parsed url   href: 'latest' }
+59 verbose addNamed [ 'connect-flash', 'latest' ]
+60 verbose addNamed [ null, null ]
+61 silly lockFile feedbc7e-connect-flash-latest connect-flash@latest
+62 verbose lock connect-flash@latest /Users/hanyan/.npm/feedbc7e-connect-flash-latest.lock
+63 verbose cache add [ 'node@0.10.x', null ]
+64 verbose cache add name=undefined spec="node@0.10.x" args=["node@0.10.x",null]
+65 verbose parsed url { protocol: null,
+65 verbose parsed url   slashes: null,
+65 verbose parsed url   auth: null,
+65 verbose parsed url   host: null,
+65 verbose parsed url   port: null,
+65 verbose parsed url   hostname: null,
+65 verbose parsed url   hash: null,
+65 verbose parsed url   search: null,
+65 verbose parsed url   query: null,
+65 verbose parsed url   pathname: 'node@0.10.x',
+65 verbose parsed url   path: 'node@0.10.x',
+65 verbose parsed url   href: 'node@0.10.x' }
+66 verbose cache add name="node" spec="0.10.x" args=["node","0.10.x"]
+67 verbose parsed url { protocol: null,
+67 verbose parsed url   slashes: null,
+67 verbose parsed url   auth: null,
+67 verbose parsed url   host: null,
+67 verbose parsed url   port: null,
+67 verbose parsed url   hostname: null,
+67 verbose parsed url   hash: null,
+67 verbose parsed url   search: null,
+67 verbose parsed url   query: null,
+67 verbose parsed url   pathname: '0.10.x',
+67 verbose parsed url   path: '0.10.x',
+67 verbose parsed url   href: '0.10.x' }
+68 verbose addNamed [ 'node', '0.10.x' ]
+69 verbose addNamed [ null, '>=0.10.0-0 <0.11.0-0' ]
+70 silly lockFile 8afda9c2-node-0-10-x node@0.10.x
+71 verbose lock node@0.10.x /Users/hanyan/.npm/8afda9c2-node-0-10-x.lock
+72 info addNameTag [ 'connect-flash', 'latest' ]
+73 silly addNameRange { name: 'node', range: '>=0.10.0-0 <0.11.0-0', hasData: false }
+74 verbose cache add [ 'npm@1.2.x', null ]
+75 verbose cache add name=undefined spec="npm@1.2.x" args=["npm@1.2.x",null]
+76 verbose parsed url { protocol: null,
+76 verbose parsed url   slashes: null,
+76 verbose parsed url   auth: null,
+76 verbose parsed url   host: null,
+76 verbose parsed url   port: null,
+76 verbose parsed url   hostname: null,
+76 verbose parsed url   hash: null,
+76 verbose parsed url   search: null,
+76 verbose parsed url   query: null,
+76 verbose parsed url   pathname: 'npm@1.2.x',
+76 verbose parsed url   path: 'npm@1.2.x',
+76 verbose parsed url   href: 'npm@1.2.x' }
+77 verbose cache add name="npm" spec="1.2.x" args=["npm","1.2.x"]
+78 verbose parsed url { protocol: null,
+78 verbose parsed url   slashes: null,
+78 verbose parsed url   auth: null,
+78 verbose parsed url   host: null,
+78 verbose parsed url   port: null,
+78 verbose parsed url   hostname: null,
+78 verbose parsed url   hash: null,
+78 verbose parsed url   search: null,
+78 verbose parsed url   query: null,
+78 verbose parsed url   pathname: '1.2.x',
+78 verbose parsed url   path: '1.2.x',
+78 verbose parsed url   href: '1.2.x' }
+79 verbose addNamed [ 'npm', '1.2.x' ]
+80 verbose addNamed [ null, '>=1.2.0-0 <1.3.0-0' ]
+81 silly lockFile 5839ad34-npm-1-2-x npm@1.2.x
+82 verbose lock npm@1.2.x /Users/hanyan/.npm/5839ad34-npm-1-2-x.lock
+83 verbose url raw node
+84 verbose url resolving [ 'https://registry.npmjs.org/', './node' ]
+85 verbose url resolved https://registry.npmjs.org/node
+86 info trying registry request attempt 1 at 10:44:09
+87 http GET https://registry.npmjs.org/node
+88 verbose url raw passport-local
+89 verbose url resolving [ 'https://registry.npmjs.org/', './passport-local' ]
+90 verbose url resolved https://registry.npmjs.org/passport-local
+91 info trying registry request attempt 1 at 10:44:09
+92 verbose etag "6WDLO1WFKHNQ410YKA0WDGEOZ"
+93 http GET https://registry.npmjs.org/passport-local
+94 silly addNameRange { name: 'npm', range: '>=1.2.0-0 <1.3.0-0', hasData: false }
+95 verbose url raw passport
+96 verbose url resolving [ 'https://registry.npmjs.org/', './passport' ]
+97 verbose url resolved https://registry.npmjs.org/passport
+98 info trying registry request attempt 1 at 10:44:09
+99 verbose etag "DSNF8IWLAJL99KNFFHQTGXK6V"
+100 http GET https://registry.npmjs.org/passport
+101 verbose url raw connect-mongo
+102 verbose url resolving [ 'https://registry.npmjs.org/', './connect-mongo' ]
+103 verbose url resolved https://registry.npmjs.org/connect-mongo
+104 info trying registry request attempt 1 at 10:44:09
+105 verbose etag "4N70P415Z0SSGQQOWL9I17CTP"
+106 http GET https://registry.npmjs.org/connect-mongo
+107 verbose url raw npm
+108 verbose url resolving [ 'https://registry.npmjs.org/', './npm' ]
+109 verbose url resolved https://registry.npmjs.org/npm
+110 info trying registry request attempt 1 at 10:44:09
+111 http GET https://registry.npmjs.org/npm
+112 verbose url raw mongoose
+113 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose' ]
+114 verbose url resolved https://registry.npmjs.org/mongoose
+115 info trying registry request attempt 1 at 10:44:09
+116 verbose etag "JPGJHVDLK0CQQU8XWYLHW2TR"
+117 http GET https://registry.npmjs.org/mongoose
+118 verbose url raw connect-flash
+119 verbose url resolving [ 'https://registry.npmjs.org/', './connect-flash' ]
+120 verbose url resolved https://registry.npmjs.org/connect-flash
+121 info trying registry request attempt 1 at 10:44:09
+122 verbose etag "9257K6VL72GCJAXJPUF70OW18"
+123 http GET https://registry.npmjs.org/connect-flash
+124 http 200 https://registry.npmjs.org/node
+125 silly registry.get cb [ 200,
+125 silly registry.get   { vary: 'Accept',
+125 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+125 silly registry.get     etag: '"BU8Y837D1042IG1HASNPPODN6"',
+125 silly registry.get     date: 'Sat, 07 Sep 2013 14:44:10 GMT',
+125 silly registry.get     'content-type': 'application/json',
+125 silly registry.get     'content-length': '1015' } ]
+126 http 304 https://registry.npmjs.org/passport-local
+127 silly registry.get cb [ 304,
+127 silly registry.get   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+127 silly registry.get     etag: '"6WDLO1WFKHNQ410YKA0WDGEOZ"',
+127 silly registry.get     date: 'Sat, 07 Sep 2013 14:44:10 GMT',
+127 silly registry.get     'content-length': '0' } ]
+128 verbose etag passport-local from cache
+129 verbose addNamed [ 'passport-local', '0.1.6' ]
+130 verbose addNamed [ '0.1.6', '0.1.6' ]
+131 silly lockFile 91e070c6-passport-local-0-1-6 passport-local@0.1.6
+132 verbose lock passport-local@0.1.6 /Users/hanyan/.npm/91e070c6-passport-local-0-1-6.lock
+133 silly addNameRange number 2 { name: 'node', range: '>=0.10.0-0 <0.11.0-0', hasData: true }
+134 silly addNameRange versions [ 'node', [ '0.0.0' ] ]
+135 silly lockFile 8afda9c2-node-0-10-x node@0.10.x
+136 silly lockFile 8afda9c2-node-0-10-x node@0.10.x
+137 error Error: No compatible version found: node@'>=0.10.0-0 <0.11.0-0'
+137 error Valid install targets:
+137 error ["0.0.0"]
+137 error     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache.js:719:10)
+137 error     at next (/usr/local/lib/node_modules/npm/lib/cache.js:698:17)
+137 error     at /usr/local/lib/node_modules/npm/lib/cache.js:675:5
+137 error     at saved (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:142:7)
+137 error     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:133:7
+137 error     at Object.oncomplete (fs.js:107:15)
+138 error If you need help, you may report this log at:
+138 error     <http://github.com/isaacs/npm/issues>
+138 error or email it to:
+138 error     <npm-@googlegroups.com>
+139 error System Darwin 11.4.2
+140 error command "node" "/usr/local/bin/npm" "install"
+141 error cwd /Users/hanyan/Desktop/e-note
+142 error node -v v0.10.17
+143 error npm -v 1.3.5
+144 verbose exit [ 1, true ]

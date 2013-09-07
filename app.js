@@ -18,7 +18,12 @@ var app = module.exports = express();
 var server = require('http').createServer(app);
 require('./routes/socket')(app, server);
 require('./config/passport')(passport);
-mongoose.connect('mongodb://heroku_app17983607:l48pl87lu7bgks3otc0ata4675@ds043388.mongolab.com:43388/heroku_app17983607');
+var uriString = 
+    process.env.MONGOLAB_URI || 
+    process.env.MONGOHQ_URL || 
+    'mongodb://localhost/test123123';
+
+mongoose.connect(uriString);
 
 //Test case for inserting/removing data to/from mongodb. 
 // var models_path = __dirname + '/notes_db'
