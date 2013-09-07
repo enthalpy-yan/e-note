@@ -35,7 +35,8 @@ exports.create = function (req, res) {
 
 exports.login = function (req, res) {
   res.render('testLogin', {
+    user: req.user,
     title: 'Login',
-    message: req.flash('error')
+    message: req.session.messages
   })
 }

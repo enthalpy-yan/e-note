@@ -8,6 +8,7 @@
     "jade": "~0.31.2",
     "mongoose": "latest",
     "passport": "latest",
+    "connect-mongo": "latest",
     "passport-local": "latest"
   }
 }

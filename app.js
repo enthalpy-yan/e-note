@@ -11,7 +11,8 @@ var express = require('express'),
     fs = require('fs'),
     flash = require('connect-flash'),
     mongoose = require('mongoose'),
-    passport = require('passport');
+    passport = require('passport'),
+    MongoStore = require('connect-mongo')(express);
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
@@ -34,7 +35,7 @@ mongoose.connect('mongodb://localhost/test123123');
 // Define a middleware function to be used for every secured routes
 var auth = function(req, res, next){
   if (!req.isAuthenticated()) 
-  	res.send(401);
+  	res.redirect('login');
   else
   	next();
 };
@@ -51,7 +52,14 @@ app.use(express.cookieParser());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.session({ secret: 'securedsession' }));
+app.use(express.session({ 
+  secret: 'securedsession',
+  cookie: {maxAge: 3600000},
+  store: new MongoStore({
+      url: 'mongodb://localhost/test123123',
+      collection: 'sessions',
+    }) 
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use(app.router);
 
@@ -82,8 +90,10 @@ if (app.get('env') === 'production') {
  */
 
 // serve index and view partials
-app.get('/', routes.testLogin);
-app.get('/index.html', routes.index);
+app.get('/', auth, function(req, res){
+  res.render('index', { user: req.user, title: 'Welcome' });
+});
+// app.get('/index.html', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
@@ -99,12 +109,25 @@ var users = require('./users_db/usersController')
 app.get('/signup', users.signup);
 app.post('/users', users.create);
 app.get('/login', users.login);
-app.post('/login',passport.authenticate('local', {
-	successRedirect: '/index.html',
-    failureRedirect: '/login',
-    failureFlash: 'Invalid email or password.'
-    })
-);
+// app.post('/login',passport.authenticate('local', {
+// 	successRedirect: '/index.html',
+//     failureRedirect: '/login',
+//     failureFlash: 'Invalid email or password.'
+//     })
+// );
+app.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err) }
+      if (!user) {
+        req.session.messages =  [info.message];
+        return res.redirect('/login')
+      }
+      req.logIn(user, function(err) {
+        if (err) { return next(err); }
+        return res.redirect('/');
+      });
+    })(req, res, next);
+  });
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
