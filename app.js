@@ -61,7 +61,7 @@ app.use(express.session({
   secret: 'securedsession',
   cookie: {maxAge: 3600000},
   store: new MongoStore({
-      url: 'mongodb://localhost/test123123',
+      url: uriString,
       collection: 'sessions',
     }) 
 }));
