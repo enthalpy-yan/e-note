@@ -43,7 +43,7 @@ var auth = function(req, res, next){
  * Configuration
  */
 // all environments
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 80);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 // cookieParser should be above session

@@ -26,7 +26,11 @@ config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/about'
     }).
     when('/contact', {
-      templateUrl: 'partials/about'
+      templateUrl: 'partials/contact'
+    }).
+    when('/add', {
+      templateUrl: 'partials/add',
+      controller: 'addNoteController'
     }).
     otherwise({
       redirectTo: '/index'

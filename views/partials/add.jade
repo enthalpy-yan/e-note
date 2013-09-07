@@ -1,0 +1,17 @@
+.container(class='add-note-container')
+  .row
+    .container
+      .col-sm-8.col-md-8.col-sm-offset-2.col-md-offset-2(class='new-note-container')
+        .row
+          .col-md-12(class='add-note-tag-bar-container')
+        .row
+          .col-md-12
+            .container
+              form(role='form', ng-submit="addNote()")
+                  .form-group
+                    label(for='inputPhrase') New Phrase
+                    input#phraseInput.form-control(type='text', ng-model='note.sentence')
+                  .form-group
+                    label(for='inputTranslation') You Understaning
+                    input#translationInput.form-control(type='text', ng-model='note.translation')
+                  button.btn.btn-default(type='submit') Submit          
