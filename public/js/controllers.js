@@ -80,6 +80,7 @@ angular.module('myApp.controllers', []).
     });
 
     $scope.loadMore = function(limit) {
+      if ($scope.busy) return;
       $scope.busy = true;
       $http.get('/api/notes?limit=' + limit).success(function(data) {
         $scope.notes = data;
