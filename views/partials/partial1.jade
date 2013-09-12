@@ -1,31 +1,21 @@
-div(ng-controller='MyCtrl1', ng-init='getNotesLength()')
-  div(class='container')
-      div(ng-show='busy', class='col-md-offset-4', style='position:fixed; z-index:10; bottom:0;')
-        p(style="font-size:40px;")
-         | Loading data...
-      div(class='input-bar-container', ng-style='bottomShadow')
-        .col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3(style='padding-top: 22px; padding-bottom: 15px;')
-          input(style='width:100%;', type='text', ng-model='query')
-      div(class='row ng-cloak', style='padding-top: 5em;', infinite-scroll='loadMore(limit)', infinite-scroll-disabled='busy')
-        div(ng-repeat='note in notes | filter: query')
-          div(class='col-sm-6 col-md-4 item', style='margin-bottom: 20px;', ng-animate="{enter: 'animate-enter'}")
-              div(class='col-md-12 col-xs-12 noteStyle', ng-mouseover='showIcon($index)', ng-mouseleave='hideIcon($index)')
-                div(class='row')
-                  div(class='col-md-12 note-tag-bar', ng-style='barColor($index)')
-                    .row
-                      .col-xs-9.col-sm-9.col-md-9(style='height:40px;')
-                        p(class='tag-bar-date')
-                          | {{note.createdAt | date:'MMM dd'}} 
-                      .col-xs-3.col-sm-3.col-md-3(style='height:40px;', ng-show='note.show == true', ng-animate="{show: 'fadeIn'}")
-                        span.glyphicon.glyphicon-edit.edit-icon(ng-click='')
-                        span.pull-right.glyphicon.glyphicon-trash.edit-delete(ng-click="deleteNote($index)")
-                div(class='container', style='height:180px;')
-                  div(class='row')
-                    .container
-                      div(class='row note-content')
-                        p
-                          | {{note.sentence}}
-                      div(class='row note-content')
-                        p
-                          | {{note.translation}}
-
+section
+  #main-content(ng-cloak, ng-init='loadNotes(9)')
+    .row
+      .container
+        div(ng-repeat='item in note.notes')
+          div(class='col-sm-6 col-md-4')
+            div(class='col-md-12', id='note')
+              article
+                header
+                  .ribbon(title='I AM P')
+                    | P
+    .row
+      .container 
+        .col-md-12
+          div(id='load-more-bar', ng-show='note.notes.length != 0', ng-click='nextPage()')
+            p(id='more')
+              | MORE
+    footer
+      #foot-nav(ng-show='note.notes.length != 0')
+        p
+          | Copyright Enote 2013
