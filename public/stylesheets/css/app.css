@@ -1,15 +1,58 @@
 /*global stylesheets*/
+
 body {
-	font-family:Helvetica, Arial, sans-serif;
   	background-color: #f0f0f0;
+  	font-family: 'Roboto', sans-serif;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
+/*fade in/fade out animation*/
+.fadeIn, .fadeOut {
+  -webkit-transition: 0.5s linear opacity;
+  -moz-transition: 0.5s linear opacity;
+  -o-transition: 0.5s linear opacity;
+  transition: 0.5s linear opacity;
+}
+.fadeIn{
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -o-opacity: 0;
+}
+.fadeOut{
+  opacity: 1;
+   -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -o-opacity: 1;
+}
+.fadeIn.fadeIn-active {
+  opacity: 1;
+   -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -o-opacity: 1;
+}
+.fadeOut.fadeOut-active{
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -o-opacity: 0;
+}
+
+/*End of global variables*/
+
+
+/*Custom stylesheets*/
+
 #main-container {
 	width: 100%;
+}
+
+.my-alert {
+	text-align: center;
+	cursor: pointer;
 }
 
 #note {
@@ -66,7 +109,7 @@ body {
 
 #foot-nav>p {
 	text-align: center;
-	color: #27ae60;
+	color: #777;
 	padding-bottom: 10px;
 }
 
@@ -98,10 +141,11 @@ input[type=text]:focus {
     padding: 3px 0px 3px 50px;
     min-height: 50px;
     font-size: 1.4em;
+    box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2);
     /*border glow*/
-    -moz-box-shadow: inset 0 0 3px 3px rgba(39, 174, 96, .15);
+/*    -moz-box-shadow: inset 0 0 3px 3px rgba(39, 174, 96, .15);
 	-webkit-box-shadow: inset 0 0 3px 3px rgba(39, 174, 96, .15);
-	box-shadow: inset 0 0 3px 3px rgba(39, 174, 96, .15);
+	box-shadow: inset 0 0 3px 3px rgba(39, 174, 96, .15);*/
 }
 
 input.icon-search {

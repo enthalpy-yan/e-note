@@ -2,6 +2,9 @@ section
   #main-content(ng-cloak, ng-init='loadNotes(9)')
     .row
       .container
+        .col-md-12
+          .alert.alert-info.my-alert(ng-click='loadNewNote()', ng-model='newNoteCount', ng-show='newNoteFlag', ng-animate="{show: 'fadeIn'}")
+            | You have {{newNoteCount}} new note. Click to refresh.
         div(ng-repeat='item in note.notes')
           div(class='col-sm-6 col-md-4')
             div(class='col-md-12', id='note')
@@ -9,6 +12,9 @@ section
                 header
                   .ribbon(title='I AM P')
                     | P
+                section
+                  | {{item.sentence}}
+
     .row
       .container 
         .col-md-12

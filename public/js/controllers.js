@@ -6,23 +6,32 @@ angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, socket) {
 
   }).
-  controller('MyCtrl1', function ($scope, $timeout, $http, socket, $location, Note) {
-    var PAGELIMIT = 18;
+  controller('noteController', function ($scope, $timeout, $http, socket, $location, Note) {
+    var PAGELIMIT = 9;
 
     $scope.note = new Note();
+    $scope.newNoteCount = 0;
+    $scope.newNoteFlag = false;
 
     $scope.loadNotes = function(limit) {
       $scope.note.getNotes(limit);
     }
 
-    $scope.nextPage = function(limit) {
-      $scope.loadNotes(limit);
+    $scope.nextPage = function() {
       PAGELIMIT += 9;
+      $scope.loadNotes(PAGELIMIT);
+    }
+
+    $scope.loadNewNote = function() {
+      $scope.loadNotes(PAGELIMIT);
+      $scope.newNoteFlag = false;
+      $scope.newNoteCount = 0;
     }
 
     //Socket IO event handler
     socket.on('note: added', function (data) {
-
+      $scope.newNoteCount += 1;
+      $scope.newNoteFlag = true;
     });
 
     socket.on('note: updated', function (data) {
