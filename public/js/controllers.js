@@ -7,7 +7,7 @@ angular.module('myApp.controllers', []).
 
   }).
   controller('noteController', function ($scope, $timeout, $http, socket, $location, Note) {
-    var PAGELIMIT = 9;
+    var PAGELIMIT = 12;
 
     $scope.note = new Note();
     $scope.newNoteCount = 0;
@@ -18,7 +18,7 @@ angular.module('myApp.controllers', []).
     }
 
     $scope.nextPage = function() {
-      PAGELIMIT += 9;
+      PAGELIMIT += 12;
       $scope.loadNotes(PAGELIMIT);
     }
 

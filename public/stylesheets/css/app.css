@@ -47,7 +47,6 @@ body {
 /*Custom stylesheets*/
 
 #main-container {
-	width: 100%;
 }
 
 .my-alert {
@@ -56,7 +55,7 @@ body {
 }
 
 #note {
-	height:230px; 
+	height:280px; 
 	background-color: #fff;
 	margin-bottom: 31px;
 	-webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.05);
@@ -86,25 +85,11 @@ body {
 	background: #c1c1c1;
 }
 
-.ribbon {
+.note-tag-bar {
     background: #2980b9;
-    height: 30px;
-    width: 24px;
-    position: relative;
-    text-align: center;
+    height: 40px;
+    padding-top: 10px;
     color: #fff;
-    border: 0;
-}
-
-.ribbon:after {
-    content: "";
-    position: absolute;
-    bottom: -18px;
-    left: 0;
-    height: 0;
-    width: 0;
-    border: solid 12px #2980b9;
-    border-bottom-color: transparent;
 }
 
 #foot-nav>p {
@@ -151,10 +136,6 @@ input[type=text]:focus {
 input.icon-search {
     background:url(../../img/search-icon.png) 10px no-repeat;
     background-size: 33px 33px;
-}
-
-section {
-	padding-top: 105px;
 }
 
 /* normal devices (tablets, 768px and up) */
