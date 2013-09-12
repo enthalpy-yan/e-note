@@ -2,7 +2,7 @@
 
 body {
   	background-color: #f0f0f0;
-  	font-family: 'Roboto', sans-serif;
+  	font-family: 'Source Sans Pro',sans-serif;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -177,6 +177,41 @@ input.icon-search {
 		right: 60px;
 		top:0; /*Put search bar inside menu*/
 	}
+}
+
+/*About page stylesheets*/
+.wrapper {
+  background-color: #fff;
+  height: 800px;
+  padding-top: 100px;
+  text-align: center;
+}
+
+#about-head {
+  margin: 50px 0 20px 0;
+  color: #000000;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+#description {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #666666;
+}
+
+#img-container {
+  height: 452px;
+  margin: 0 auto;
+  background:url(../../img/test.png) no-repeat;
+  background-size: contain;
+}
+
+h1, h2{
+  font-family: 'Source Sans Pro',sans-serif;
 }
 
 
@@ -354,9 +389,7 @@ transform:scale(.3);
 background-color:#ffffff;
 }
 
-} - See more at: http://cssload.net/#sthash.AMu29ekE.dpuf
-
-
+}
 
 
 
