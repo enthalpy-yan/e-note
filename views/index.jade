@@ -2,39 +2,42 @@ extends layout
 
 block body
   header
-    nav.navbar.navbar-default.navbar-fixed-top.my-navbar(role='navigation')
+    .navbar.navbar-default.navbar-fixed-top.my-navbar(role='navigation')
       .container
         .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex5-collapse')
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(style='font-size:30px;',href='#') 
-              span(style='font-size:35px;')
-                | E
-              span
-                | note
-          .collapse.navbar-collapse.navbar-ex5-collapse.pull-left
-            ul.nav.navbar-nav
-              li
-                a(href='/') Find
-              li
-                a(href='/about') About
-              li
-                a(href='/contact') Contact
-          .search-bar-container.pull-right
-            form(class="search", method="post", action="")
-                input(name="searchstring", class="icon-search", type="text")
-  
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(style='font-size:30px;',href='#') 
+            span(style='font-size:35px;')
+              | E
+            span
+              | note
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/', class='link-top-border') Find
+            li
+              a(href='/about', class='link-top-border') About
+            li
+              a(href='/contact', class='link-top-border') Contact
+          ul.nav.navbar-nav.navbar-right.hide-mobile
+            li
+              a(href="#modal-text")
+                span(class="glyphicon glyphicon-edit edit-icon")
+            li
+              .search-bar-container
+                form(class="search", method="post", action="")
+                  input(name="searchstring", class="icon-search", type="text")
+
   div(ng-view)
 
   script(src='/socket.io/socket.io.js')
   script(src='bower_components/angular/jquery.js')
   script(src='bower_components/angular/bootstrap.min.js')
   script(src='bower_components/angular/angular.js')
-  script(src='bower_components/angular/jquery.wookmark.js')
-  script(src='bower_components/angular/ng-infinite-scroll.js')
   script(src='bower_components/angular-socket-io/socket.js')
   script(src='js/app.js')
   script(src='js/services.js')

@@ -22,16 +22,6 @@ section
           div(id='load-more-bar', ng-show='note.notes.length != 0', ng-click='nextPage()')
             p(id='more')
               | MORE
-            #fadingBarsG(ng-show='note.notes.busy == true')
-              #fadingBarsG_1.fadingBarsG
-              #fadingBarsG_2.fadingBarsG
-              #fadingBarsG_3.fadingBarsG
-              #fadingBarsG_4.fadingBarsG
-              #fadingBarsG_5.fadingBarsG
-              #fadingBarsG_6.fadingBarsG
-              #fadingBarsG_7.fadingBarsG
-              #fadingBarsG_8.fadingBarsG
-
     footer
       #foot-nav(ng-show='note.notes.length != 0')
         p

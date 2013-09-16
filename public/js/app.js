@@ -10,7 +10,6 @@ angular.module('myApp', [
 
   // 3rd party dependencies
   'btford.socket-io',
-  'infinite-scroll'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
